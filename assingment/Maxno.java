@@ -1,0 +1,38 @@
+package assingment;
+
+import java.util.Scanner;
+
+public class Maxno {
+	
+	public static void main(String[] args) {
+		
+		System.out.println("enter the 3 no :");
+		
+		Scanner n = new Scanner(System.in);
+				
+		int a = n.nextInt();
+		int b = n.nextInt();
+		int c = n.nextInt();
+		
+		if(a > b)
+		{
+			if(a > c)
+			{
+				System.out.println("1 st no is max");
+			}
+			else if(c > a)
+			{
+				System.out.println("2 nd no is max");
+			}
+		}
+		else
+		{
+			if(b > c)
+			{
+				System.out.println("3 rd no is max");
+			}
+		}
+		
+	}
+
+}
