@@ -1,0 +1,379 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Scanner;
+
+	public class Assesment 
+	{  
+
+		private static String pass = "1234";// create password
+		private static ArrayList<Book> books = new ArrayList<>(); // create arraylist
+		private static Scanner sc =new Scanner(System.in); //create scanner class to take choice from user
+		
+	
+		public static void main(String[] args) 
+		{
+			            
+				System.out.println("Enter Your Password");
+				
+				String pass1 = sc.next();
+				
+				if(pass1.equals(pass))
+				{
+					System.out.println(" welcome to the Library management system. ");
+					
+					display();
+				}
+				else
+				{
+					System.out.println("wrong password");
+				}
+		}
+
+	static void display() //create display method for menu
+	{
+	        int c;
+	    
+	        do {
+	            System.out.println("\n -------Mian Menu------");
+	            System.out.println("1. Add a Book");
+	            System.out.println("2. Delete  Book");
+	            System.out.println("3. Search  Book");
+	            System.out.println("4. View  Book list");
+	            System.out.println("5. Edit Book Record");
+	            System.out.println("6. Change Password");
+	            System.out.println("7. close application");
+                System.out.println("------------------------------");
+	            System.out.print("Enter your choice: ");
+	            c = sc.nextInt();
+	            sc.nextLine();
+
+	            switch (c) {
+	                case 1:
+	                   addbook();
+	                    break;
+	                case 2:
+	                	delete();
+	                    break;
+	                case 3:
+	                	search();
+	                    break;
+	                case 4:
+	                	view();
+	                    break;
+	                case 5:
+	                	chanpass(sc);
+	                    break;
+	                case 6:
+	                	System.out.println("Exiting in 3 seconds...");
+	                    try 
+	                    {
+	                        Thread.sleep(3000);
+	                    } 
+	                    catch (Exception e)
+	                    {
+	                        e.printStackTrace();
+	                    }
+	                    System.exit(0);
+	        
+	                    break;
+	                default:
+	                    System.out.println("Invalid choice. Please enter again.");
+	                    break;
+	            }
+	        } while (c != 6);
+		}
+	
+    static void addbook() //create method for add book
+	{
+    	
+    	System.out.println("--------select categories----------");
+    	System.out.println("1.computer");
+    	System.out.println("2.electronics");
+    	System.out.println("3.electrical");
+    	System.out.println("4.civil");
+    	System.out.println("5.mechanical");
+    	System.out.println("6. architecture");
+    	System.out.println("7.back to main menu");
+    	System.out.println("--------------------------");
+    	System.out.println("\tenter your choice");
+    	
+    	int c = sc.nextInt();
+        sc.nextLine();
+
+        switch (c) {
+            case 1:
+         
+            	System.out.println("computer");
+                break;
+            case 2:
+            	
+            	System.out.println("electronics");
+                break;
+            case 3:
+            	
+            	System.out.println("electrical");
+                break;
+            case 4:
+            	
+            	System.out.println("civil");
+                break;
+            case 5:
+            	
+            	System.out.println("mechanical");
+                break;
+            case 6:
+            	
+            	System.out.println("architecture");
+                break;
+                
+            case 7:
+            	display();
+            	break;
+             
+            default:
+                System.out.println("Invalid choice");
+                break;
+        }
+  
+        
+            System.out.println("enter the below information:");
+		  
+            System.out.println("enter your catogery:");
+            String cat = sc.next();
+	        System.out.println("enter book id:");
+	        int id = sc.nextInt();
+	        System.out.println("enter book name:");
+	        String bkn = sc.next();
+	        System.out.println("enter author name:");
+            String au = sc.next();
+            System.out.println("enter quantity:");
+            int qu = sc.nextInt();
+            int p = 0;
+            int pr = qu*p;
+            
+			Book newBook = new Book(cat,id,bkn,au,qu,pr);
+			books.add(newBook);
+			
+	        System.out.println("Book added successfully.");
+	    }
+		
+	static void delete() // create method for delete book
+    {
+      System.out.println("\n enter the book id to delete:");
+      int id = sc.nextInt();
+      
+      for(Book bk : books)
+      {
+      if (bk.getId() == id)
+      {
+    	  books.remove(bk);
+          System.out.println("Book deleted successfully.");
+      }
+    }
+    }
+ 
+	static void search() // create method for search book
+	
+		{
+		
+		if (books.isEmpty()) 
+		{
+            System.out.println("No books available for searching.");
+            return;
+		}
+	HashSet<Book> rs = new HashSet<>();
+	
+	boolean t;
+	
+	do {
+		System.out.println("Search Options:");
+        System.out.println("1. Search by id");
+        System.out.println("2. Search by name");
+        int s = sc.nextInt();
+
+        
+        
+        switch (s) 
+        
+        {
+            case 1:
+            	
+            System.out.print("Enter book id: ");
+                int  id = sc.nextInt();
+                
+             
+            for(Book bk1 : books)
+            {
+            	if (bk1.getId() == id)
+                    {
+                        rs.addAll(books);
+                        System.out.println("book is available"+books);
+                    }
+            } break;
+                
+            case 2:
+            	
+                System.out.print("search by name: ");
+                String se= sc.nextLine();
+                
+                for (Book bk2 : books) 
+                {
+                    if (bk2.getBkn().equalsIgnoreCase(se)) 
+                    {
+                        rs.addAll(books);
+                        System.out.println(books);
+                    }
+                }
+                break;
+                
+            default:
+                System.out.println("Invalid search choice.");
+                break;
+        }
+        System.out.println("do you want another search : y/n ");
+        String o = sc.next();
+        if(o == "n")
+        {
+           display(); 
+        }
+        t = o.equals("y");
+        
+		}while(t);
+		}
+		
+	
+	
+	static void view() // create method to view book
+	
+	{
+        if (books.isEmpty()) 
+        {
+            System.out.println("No books found.");
+        } 
+        else 
+        {   
+            for (Book bk : books)
+            {
+                System.out.println(bk);
+            }
+        }
+    }
+	
+	static void chanpass(Scanner sc) // create method for change password
+	{
+        System.out.print("Enter old password: ");
+        String oldpass = sc.nextLine();
+        
+
+		if (oldpass.equals(pass))
+        {
+            System.out.print("Enter new password: ");
+            String newpass = sc.nextLine();
+            setpass(newpass);
+            
+            System.out.println("Password changed successfully.");
+        } 
+        else 
+        {
+            System.out.println("Incorrect old password. Password not changed.");
+        }
+	}
+
+
+		public static String getpass() 
+		{
+	        return pass;
+	    }
+
+	    public static void setpass(String newPass)
+	    {
+	        pass = newPass;
+	        
+    }
+
+}
+
+
+class Book // create Book class for get and set value
+{
+    private String cat;
+    private int id;
+    private String bkn;
+    private String au;
+    private int qu;
+    private int pr;
+   
+
+    public Book( String cat,int id , String bkn, String au,int qu,int pr) {
+        this.cat = cat;
+        this.id = id;
+        this.bkn = bkn;
+        this.au = au;
+        this.qu = qu;
+        this.pr = pr;
+    }
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public String getBkn() {
+		return bkn;
+	}
+
+
+	public void setBkn(String bkn) {
+		this.bkn = bkn;
+	}
+
+
+	public String getAu() {
+		return au;
+	}
+
+
+	public void setAu(String au) {
+		this.au = au;
+	}
+
+
+	public int getQu() {
+		return qu;
+	}
+
+
+	public void setQu(int qu) {
+		this.qu = qu;
+	}
+   
+	public int getpr() {
+		return pr;
+	}
+
+
+	public void setpr(int pr) {
+		this.pr = pr;
+	}
+
+        public String toString()
+        {
+          return"catagery:" +cat+  
+        		  "\nbook id: " +id+ 
+        		  "\n book name:" +bkn+  
+        		  "\n author:"  +au+ 
+        		  "\n quantity:" +qu 
+                                +pr;
+       
+
+        }
+       
+        	
+    }
+
