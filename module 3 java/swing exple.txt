@@ -1,0 +1,311 @@
+import java.awt.FlowLayout;
+import java.sql.Statement;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
+
+
+public class Register implements ActionListener 
+{
+	
+	JFrame frame;
+	JButton ex,reg,dl,up,res,ref;
+	JTextField tf1,tf2,tf3,tf4;
+	JLabel id,nm,gen,add,con,reffr;
+	JRadioButton ch1,ch2;
+	JTable tb;
+	JScrollPane js;
+	
+	DefaultTableModel model;
+	
+	
+	public Register()
+	{
+		frame = new JFrame("register from");
+		
+		id = new JLabel("id");
+		id.setBounds(35, 58, 60, 16);
+		
+		nm = new JLabel("name");
+		nm.setBounds(35, 96, 60, 16);
+		
+		gen = new JLabel("gender");
+		gen.setBounds(35, 139, 60, 16);
+		
+		add = new JLabel("address");
+		add.setBounds(35, 184, 60, 16);
+		con = new JLabel("contact");
+		con.setBounds(35, 224, 60, 16);
+		reffr = new JLabel("registration form");
+		reffr.setBounds(61, 13, 157, 23);
+		 
+		ch1 = new JRadioButton("male");
+		ch1.setBounds(125, 139, 70, 25);
+		ch2 = new JRadioButton("female");
+		ch2.setBounds(200, 139, 70, 25);
+		
+		tf1 = new JTextField(10);
+		tf1.setBounds(130,49,167,34);
+		tf2 = new JTextField(10);
+		tf2.setBounds(130,87,167,34);
+		tf3 = new JTextField(10);
+		tf3.setBounds(130,175,167,34);
+		tf4 = new JTextField(10);
+		tf4.setBounds(130,215,167,34);
+	
+		ex = new JButton("exit");
+		ex.setBounds(35, 277, 107, 34);
+		reg = new JButton("register");
+		reg.setBounds(150, 277, 120, 34);
+		dl = new JButton("delete");
+		dl.setBounds(35, 317, 107, 34);
+		up = new JButton("update");
+		up.setBounds(150, 317, 120, 34);
+		ref = new JButton("refresh");
+		ref.setBounds(550, 403, 300, 34);
+		res = new JButton("reset");
+		res.setBounds(87, 356, 120, 34);
+		
+String column[] = {"S.No","ID","Name","Gender","Address","Contact"};
+		
+		model = new DefaultTableModel(column,0);
+		tb = new JTable(model);
+		tb.setBounds(350, 13, 650, 377);
+		
+		
+		tb.repaint();
+		js = new JScrollPane(tb, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		js.setBounds(350, 13, 650, 377);
+		
+		
+		ButtonGroup bg = new ButtonGroup();
+	
+		bg.add(ch1);
+		bg.add(ch2);
+		
+		ex.addActionListener(this);
+		reg.addActionListener(this);
+		dl.addActionListener(this);
+		up.addActionListener(this);
+		ref.addActionListener(this);
+		res.addActionListener(this);
+		
+		
+		frame.add(id);
+		frame.add(nm);
+		frame.add(gen);
+		frame.add(add);
+		frame.add(con);
+		frame.add(reffr);
+		frame.add(dl);
+		frame.add(ex);
+		frame.add(reg);
+		frame.add(up);
+		frame.add(ref);
+		frame.add(res);
+		frame.add(tf1);
+		frame.add(tf2);
+		frame.add(tf3);
+		frame.add(tf4);
+		frame.add(ch1);
+		frame.add(ch2);
+		frame.add(js);
+		frame.setSize(1090,600);
+		frame.setLayout(null);
+		frame.setVisible(true);
+	
+	}
+	
+	
+	String host = "jdbc:mysql://localhost:3306/";
+	String db = "nik1";
+	String url = host+db;
+
+	
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		if(e.getSource() == ex)
+		{
+			frame.dispose();
+		}
+		if(e.getSource() == reg)
+		{
+             in();
+		}
+		if(e.getSource() == dl)
+		{
+			dldt();
+		}
+	
+		if(e.getSource() == up)
+		{
+			updt();
+		}
+		
+		if(e.getSource() == res)
+		{
+			tf1.setText(null);
+			 tf2.setText(null);
+			 ch1.setSelected(false);
+			 ch2.setSelected(false);
+			 tf3.setText(null);
+			 tf4.setText(null);
+		}
+
+		if(e.getSource() == ref)
+		{
+			reftb();
+		}
+		
+	}
+	
+	public void in()
+	{
+		try 
+		{
+			int i;
+			int id = Integer.parseInt(tf1.getText());
+			String nam = tf2.getText();
+						
+			String gen;
+			if(ch1.isSelected())
+			{
+				gen = ch1.getText();
+			}
+			else
+				gen = ch2.getText();
+			
+			String add = tf3.getText();
+			long cont = Long.parseLong(tf4.getText());
+			
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DriverManager.getConnection(url,"root","");
+			String quary = "insert into Reg value(null, '" + id + "','" + nam + "', '" + gen + "','" + add + "','" + cont +"')";			
+			Statement stmt = con.createStatement();
+			
+			i = stmt.executeUpdate(quary);
+			if(i > 0 )
+			{
+				JOptionPane.showMessageDialog(reg, "Registered Successfully");
+			}
+			else
+			{
+				JOptionPane.showMessageDialog(reg ,"not register");
+			}
+		} 
+		catch (Exception e) 
+		{
+			System.out.println(e);
+		}
+	}
+
+	public void dldt()
+	{
+			int i;
+			String id = tf1.getText().toString();
+			String quary = "delete from Reg where id='"+id+"'";
+					
+			try 
+			{
+				
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con = DriverManager.getConnection(url, "root", "");
+				Statement stmt = con.createStatement();
+				i = stmt.executeUpdate(quary);
+				
+				if(i>0)
+				{
+					JOptionPane.showMessageDialog(dl, "Deleted Successfully");
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(dl, "not deleted");
+				}
+						
+			}
+			catch (Exception e) 
+			{
+				System.out.println(e);
+			}
+			
+			
+	}
+	public void updt()
+	{
+		int i;
+		String id = tf1.getText().toString();
+		String nam = tf2.getText();
+					
+		String gen;
+		if(ch1.isSelected())
+		{
+			gen = ch1.getText();
+		}
+		else
+			gen = ch2.getText();
+		
+		String add = tf3.getText();
+		long cont = Long.parseLong(tf4.getText());
+		String quary= "update Reg set ID= "+id+",Name= '"+nam+"',Gender= '"+gen+"',Address='"+add+"',Contact= "+cont+"";
+								
+		try 
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DriverManager.getConnection(url, "root", "");
+			Statement stmt = con.createStatement();
+			i = stmt.executeUpdate(quary);
+			JOptionPane.showMessageDialog(up, "Updated Successfully");
+		}
+		catch (Exception e) 
+		{
+			System.out.println(e);
+		}
+		
+			
+	}
+	
+	
+	public void reftb()
+	{
+			
+		String quary = "select * from Reg";
+		try 
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DriverManager.getConnection(url, "root", "");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(quary);
+			model.setRowCount(0);
+						
+			while(rs.next())
+			{
+				model.addRow(new Object[] {rs.getInt(1), rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getLong(6)});
+			}
+		}
+		catch (Exception e) 
+		{
+			System.out.println(e);
+		}
+	}
+public static void main(String[] args)
+{
+	new Register();
+	
+}
+}
