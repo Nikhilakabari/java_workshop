@@ -1,0 +1,90 @@
+W.A.J.P to create a custom exception if Customer withdraw amount which is greater 
+than account balance then program will show custom exception otherwise amount 
+will deduct from account balance. Account balance is: 2000 Enter withdraw amount: 
+2500 
+Sorry, insufficient balance, you need more 500 Rs. To perform this transaction.
+
+ans:
+
+public class Ac
+{
+	int accn;
+	double balance;
+	
+	public Ac(int acn)
+	{
+		this.accn = acn;
+	}
+
+	void deposit(double balance)
+	{
+		this.balance = balance;
+	}
+	public int getAccn() {
+		return accn;
+	}
+	public void setAccn(int accn) {
+		this.accn = accn;
+	}
+	public double getBalance() {
+		return balance;
+	}
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
+	public void withdrawal(double amount) throws InsufficientFundExeption
+	{
+		if(amount >= balance)
+		{
+			double need = amount- balance;
+			throw new InsufficientFundExeption(need);
+		}
+		else
+		{
+			balance = balance - amount;
+			
+		}
+	}
+}
+
+public class InsufficientFundExeption extends Exception
+	{
+		double amount;
+
+		public InsufficientFundExeption(double amount)
+		{
+			this.amount = amount;
+		}
+		public double getAmount() {
+			return amount;
+		}
+
+		public void setAmount(double amount) {
+			this.amount = amount;
+		}
+		
+
+public class Bankbalance 
+{
+
+	public static void main(String[] args) 
+	{
+
+		Ac a = new Ac(99);
+		a.deposit(2000);
+	
+	     try
+	     {
+	    	 a.withdrawal(2500);
+	    	 System.out.println("your remaining balance is " +a.getBalance());
+	     }
+	     catch(InsufficientFundExeption e)
+	     {
+	 
+	    	 System.out.println("you need more "+e.getAmount());
+	    	 
+	     }  
+	}
+
+}

@@ -1,0 +1,26 @@
+Write a Java program to iterate through all elements in an array list
+
+ans:
+
+import java.util.ArrayList;
+
+public class Iterate
+{
+    public static void main(String[] args)
+    {
+       
+        ArrayList<Integer> num = new ArrayList<>();
+        num.add(7);
+        num.add(9);
+        num.add(4);
+        num.add(5);
+
+     
+        System.out.println("iteratearraylist:");
+        
+        for (int i = 0; i < num.size(); i++)
+        {
+            System.out.println(num.get(i));
+        }
+    }
+}

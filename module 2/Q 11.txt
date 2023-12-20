@@ -1,0 +1,25 @@
+Write a Java program that accepts an integer (n) and computes the value of 
+n+nn+nnn. Input number: 5 
+5 + 55 + 555
+
+ans:
+import java.util.Scanner;
+
+public class Compatvalue 
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Input number: ");
+        int n = sc.nextInt();
+        
+        int nn = n * 10 + n; 
+        int nnn = nn * 10 + n; 
+        int r = n + nn + nnn; 
+        
+        System.out.println(n + " + " + nn + " + " + nnn + " = " + r
+        		);
+        
+    }
+}

@@ -1,0 +1,28 @@
+Write a Java program to compare two sets and retain elements which are same on 
+both sets. 
+
+ans:
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class Retainele
+{
+    public static void main(String[] args)
+    {
+        Set<Integer> set1 = new HashSet<>();
+        set1.add(1);
+        set1.add(2);
+        set1.add(3);
+
+        Set<Integer> set2 = new HashSet<>();
+        set2.add(2);
+        set2.add(3);
+        set2.add(4);
+
+        Set<Integer> retain = new HashSet<>(set1);
+        retain.retainAll(set2);
+
+        System.out.println("Retained elements: " + retain);
+    }
+}

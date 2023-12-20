@@ -1,0 +1,20 @@
+Write a Java program to count the number of key-value (size) mappings in a map.
+
+ans:
+
+import java.util.HashMap;
+
+public class Hasmap 
+{
+    public static void main(String[] args) 
+    {
+    	HashMap<String, Integer> map = new HashMap<>();
+        map.put("g", 1);
+        map.put("b", 2);
+        map.put("r", 3);
+
+        
+        int size = map.size();
+        System.out.println("Number: " + size);
+    }
+}

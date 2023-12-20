@@ -1,0 +1,26 @@
+W.A.J. P to create one thread by implementing Runnable interface in 
+Class
+
+ans:
+
+class Exrunnable implements Runnable
+{
+ public void run()
+ {
+     System.out.println("This is a new thread running");
+ }
+
+ public static void main(String[] args)
+ {
+     
+     Exrunnable r1 = new Exrunnable();
+     
+     
+     Thread t1 = new Thread(r1);
+     
+    
+     t1.start();
+ }
+}
+
+

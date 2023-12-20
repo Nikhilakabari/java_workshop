@@ -1,0 +1,32 @@
+Write a Java program to increase the size of an array list. 
+
+ans:
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Incsize 
+
+{
+    public static void main(String[] args)
+    {
+       
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
+       
+        int newSize = 5;
+        while (list.size() < newSize) 
+       {
+            list.add(null);
+        }
+
+      
+        System.out.println("ArrayList after increasing size:");
+        for (Integer el : list) 
+       {
+            System.out.println(el);
+        }
+    }
+}

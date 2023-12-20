@@ -1,0 +1,22 @@
+Write a Java program to get a collection view of the values contained in this map.
+
+ans:
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+public class  Collectionview
+{
+    public static void main(String[] args) 
+    {
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "O");
+        map.put(2, "T");
+        map.put(3, "g");
+
+        Collection<String> v = map.values();
+
+        System.out.println("Values in the map: " + v);
+    }
+}

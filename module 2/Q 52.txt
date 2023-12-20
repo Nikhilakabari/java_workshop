@@ -1,0 +1,28 @@
+Write a Java program to search an element in an array list.
+
+ans:
+
+import java.util.ArrayList;
+
+public class Search
+{
+    public static void main(String[] args)
+    {
+        
+        ArrayList<String> nam = new ArrayList<>();
+        nam.add("mik");
+        nam.add("cap");
+        nam.add("nik");
+
+ 
+        String s1 = "cap";
+        boolean f = nam.contains(s1);
+
+      
+   for(String n : nam)
+   {
+	   System.out.println(n);
+   }
+        System.out.println(s1);
+    }
+}

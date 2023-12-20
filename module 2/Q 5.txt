@@ -1,0 +1,39 @@
+Write a program in Java to input 5 numbers from keyboard and find their sum and 
+average using for loop.
+
+ans:
+import java.util.Scanner;
+
+public class Sumavarege {
+	
+	public static void main(String[] args) {
+		int i;
+		int sum = 0;
+		int av =0;
+		
+		System.out.println("enter any 5 no;");
+		
+		Scanner n = new Scanner(System.in);
+		int a[] = new int[5];
+		a[0]  = n.nextInt(); 
+		a[1] = n.nextInt();
+		a[2] = n.nextInt();
+		a[3] = n.nextInt();
+		a[4] = n.nextInt();
+ 		
+		for(i = 0;i < 5; i++)
+		{
+			System.out.println(a[i]);
+			sum+=a[i];
+			av = sum/5;
+			
+		}
+		System.out.println("sum of all no is:"+sum);
+		System.out.println("average of no is "+av);
+		
+	
+		
+		
+	}
+
+}

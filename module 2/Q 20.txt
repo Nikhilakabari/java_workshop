@@ -1,0 +1,53 @@
+W.A.J.P to find the second most frequent character in a given string. The given string 
+is: successes The second most frequent char in the string is: c
+
+ans:
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+public class Mostfre
+{
+
+    public static char findchar(String i) 
+    {
+        Map<Character, Integer> charCount = new HashMap<>();
+
+       
+        for (char c : i.toCharArray()) 
+        {
+            charCount.put(c, charCount.getOrDefault(c, 0) + 1);
+        }
+
+        int maxfreq = 0;
+        int sdmaxfreq = 0;
+        char sdmostfreqchar = '\0';
+
+        for (Entry<Character, Integer> entry : charCount.entrySet())
+        {
+            int freq = entry.getValue();
+            if (freq > maxfreq)
+            {
+                sdmaxfreq = maxfreq;
+                maxfreq = freq;
+                sdmostfreqchar = entry.getKey();
+            } 
+            else if 
+            (freq > sdmaxfreq && freq != maxfreq)
+            {
+                sdmaxfreq = freq;
+                sdmostfreqchar = entry.getKey();
+            }
+        }
+
+        return sdmostfreqchar;
+    }
+
+    public static void main(String[] args)
+    {
+        String i = "successes";
+        char sdmostfreqchar = findchar(i);
+        System.out.println("The second most frequent char in the string is: " + sdmostfreqchar);
+    }
+}

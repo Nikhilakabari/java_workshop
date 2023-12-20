@@ -1,0 +1,28 @@
+Write a Java program to check whether a map contains key-value mappings (empty) 
+or not. 
+
+ans:
+import java.util.HashMap;
+
+public class Containc
+{
+    public static void main(String[] args) 
+    {
+       
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("A", 1);
+        map.put("B", 2);
+
+         
+        boolean e = map.isEmpty();
+
+        
+        if (e) 
+        {
+            System.out.println("Map is empty.");
+        } else {
+            System.out.println("Map is not empty.");
+        }
+    }
+}
+

@@ -1,0 +1,22 @@
+W.A.J.P to get the character at the given index within the String. Original String = 
+Tops Technologies! The character at position 0 is T, The character at position 10 is 
+o
+
+ans:
+public class Positionno
+{
+	public static void main(String[] args) 
+	{
+		String t = "Tops Technologies!";
+		
+		int i = 0;
+		int e = 10;
+		
+		char chi = t.charAt(i);
+		char che = t.charAt(e);
+		
+		System.out.println("character at position 1 is : "+chi);
+		System.out.println("charecter at position 10 is :" +che);
+	}
+
+}

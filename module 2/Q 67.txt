@@ -1,0 +1,29 @@
+• Write a Java program to convert a hash set to a List/Array List.
+
+ans:
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
+
+public class Convertlist
+{
+    public static void main(String[] args)
+    {
+      
+        HashSet<String> set = new HashSet<>();
+        set.add("hcb");
+        set.add("cnf c");
+        set.add("cnhc");
+
+       
+        List<String> a = new ArrayList<>(set);
+
+        
+        System.out.println("Converted array:");
+        for (String el : a) 
+        {
+            System.out.println(el);
+        }
+    }
+}

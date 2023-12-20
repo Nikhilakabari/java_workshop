@@ -1,0 +1,51 @@
+Create a class named 'Shape' with a method to print "This is this is shape". Then
+create two other classes named 'Rectangle', 'Circle' inheriting the Shape class, both
+having a method to print "This is rectangular shape" and "This is circular shape"
+respectively. Create a subclass 'Square' of 'Rectangle' having a method to print
+"Square is a rectangle". Now call the method of 'Shape' and 'Rectangle' class by the
+object of 'Square' class.
+
+ans:
+
+class Shape2 
+{
+    void displayShape()
+    {
+        System.out.println("This is a shape.");
+    }
+}
+
+class Rectangle extends Shape2 
+{
+    void displayRectangle() 
+    {
+        System.out.println("This is a rectangular shape.");
+    }
+}
+
+class Circle extends Shape2
+{
+    void displayCircle()
+    {
+        System.out.println("This is a circular shape.");
+    }
+}
+
+
+class Squre extends Rectangle 
+{
+    void displaySquare() 
+    {
+        System.out.println("Square is a rectangle.");
+    }
+
+    public static void main(String[] args) 
+    {
+        Squre s1 = new Squre();
+
+        s1.displayShape(); 
+        s1.displayRectangle(); 
+        s1.displaySquare(); 
+        
+    }
+}

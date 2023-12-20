@@ -1,0 +1,28 @@
+ Write a Java program to copy one array list into another.
+
+ans:
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Copyarray 
+{
+    public static void main(String[] args) 
+    {
+       
+        ArrayList<String> f = new ArrayList<>();
+        f.add("ncj");
+        f.add("Oce");
+        f.add("mxm");
+
+     
+        ArrayList<String> copy = new ArrayList<>(f);
+
+       
+        System.out.println("after copy:");
+        
+        for (String fr : copy) 
+        {
+            System.out.println(fr);
+        }
+    }
+}

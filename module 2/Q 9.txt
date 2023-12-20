@@ -1,0 +1,50 @@
+• Write a Java program to count the letters, spaces, numbers and other characters of 
+an input string.
+
+
+
+ans:
+import java.util.Scanner;
+
+public class Count 
+{
+	public static void main(String[] args)
+	{
+		
+		System.out.println("please enter any charecter name:");
+		Scanner sc = new Scanner(System.in);
+		String n = sc.nextLine();
+		int ltco = 0;
+		int spco = 0;
+		int noco =0;
+		int otco =0;
+		
+		for(int i = 0; i < n.length(); i++)
+		{
+			char ch = n.charAt(i);
+			
+			if(Character.isLetter(ch))
+			{
+				ltco++;
+			}
+			else if(Character.isDigit(ch))
+			{
+				noco++;
+			}
+			else if(Character.isWhitespace(ch))
+			{
+				spco++;
+			}
+			else
+			{
+				otco++;
+			}
+			
+		}
+		System.out.println("number of letters: "+ltco);
+		System.out.println("number of space :"+spco);
+		System.out.println("number of digits:" +noco);
+		System.out.println("number of other charecter :"+otco);
+	}
+
+}

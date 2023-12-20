@@ -1,0 +1,65 @@
+Print the sum, difference and product of two complex numbers by creating a class
+named 'Complex' with separate methods for each operation whose real and
+imaginary parts are entered by user. 
+
+ans:
+
+import java.util.Scanner;
+
+class Comp {
+    double rl, im;
+
+    Comp(double rl, double im) 
+    {
+        this.rl = rl;
+        this.im = im;
+    }
+
+    static Comp add(Comp num1, Comp num2)
+    {
+        return new Comp(num1.rl + num2.rl, num1.im + num2.im);
+    }
+
+    static Comp subtract(Comp num1, Comp num2)
+{
+        return new Comp(num1.rl - num2.rl, num1.im - num2.im);
+    }
+
+    static Comp multiply(Comp num1, Comp num2)
+    {
+        double rt = num1.rl * num2.rl - num1.im * num2.im;
+        double it = num1.rl * num2.im + num1.im * num2.rl;
+        return new Comp(rt, it);
+    }
+}
+
+public class Com
+{
+    public static void main(String[] args) 
+    {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter the real part of the first complex number:");
+        double rl1 = scanner.nextDouble();
+        System.out.println("Enter the imaginary part of the first complex number:");
+        double im1 = scanner.nextDouble();
+
+        System.out.println("Enter the real part of the second complex number:");
+        double rl2 = scanner.nextDouble();
+        System.out.println("Enter the imaginary part of the second complex number:");
+        double im2 = scanner.nextDouble();
+
+        Comp num1 = new Comp(rl1, im1);
+        Comp num2 = new Comp(rl2, im2);
+
+        Comp sum = Comp.add(num1, num2);
+        Comp difference = Comp.subtract(num1, num2);
+        Comp product = Comp.multiply(num1, num2);
+
+        System.out.println("Sum: " + sum.rl + " + " + sum.im + "i");
+        System.out.println("Difference: " + difference.rl + " + " + difference.im + "i");
+        System.out.println("Product: " + product.rl + " + " + product.im + "i");
+
+        scanner.close();
+    }
+}

@@ -1,0 +1,45 @@
+Create a class named 'Print Number' to print various numbers of different data types 
+by creating different methods with the same name 'printn' having a parameter for 
+each data type.
+
+ans:
+public class PrintNumber {
+
+
+    public void printn(int num) 
+    {
+        System.out.println("Printing integer number: " + num);
+    }
+    
+    public void printn(double num)
+    {
+        System.out.println("Printing double number: " + num);
+    }
+
+    public void printn(float num)
+    {
+        System.out.println("Printing float number: " + num);
+    }
+
+
+    public void printn(long num)
+    {
+        System.out.println("Printing long number: " + num);
+    }
+
+    public void printn(String text) 
+    {
+        System.out.println("Printing string: " + text);
+    }
+
+    public static void main(String[] args) 
+    {
+        PrintNumber print= new PrintNumber();
+
+        print.printn(9); 
+        print.printn(5.78); 
+        print.printn(5.6f); 
+        print.printn(1000000000l); 
+        print.printn("nikhil akabari"); 
+    }
+}

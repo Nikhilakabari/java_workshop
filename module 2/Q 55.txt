@@ -1,0 +1,28 @@
+Write a Java program to shuffle elements in an array list. 
+ans:
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Sufflearray 
+{
+    public static void main(String[] args) 
+    {
+        
+        ArrayList<String> e = new ArrayList<>();
+        e.add("n");
+        e.add("i");
+        e.add("o");
+        e.add("e");
+
+        
+        Collections.shuffle(e);
+
+        
+        System.out.println("Suffl:");
+        for (String e1 : e)
+        {
+            System.out.println(e1);
+        }
+    }
+}

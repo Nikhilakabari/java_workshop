@@ -1,0 +1,26 @@
+
+ans:
+import java.util.ArrayList;
+
+public class Arreylistex 
+{
+    public static void main(String[] args)
+    {
+       
+        ArrayList<String> cl = new ArrayList<>();
+
+        
+        cl.add("Red");
+        cl.add("Blue");
+        cl.add("Green");
+        cl.add("Yellow");
+
+        
+        System.out.println("List of colors:");
+        
+        for (String color : cl)
+        {
+            System.out.println(color);
+        }
+    }
+}

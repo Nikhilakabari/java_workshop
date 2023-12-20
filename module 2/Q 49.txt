@@ -1,0 +1,29 @@
+Write a Java program to insert an element into the array list at the first position. 
+
+ans:
+
+import java.util.ArrayList;
+
+public class Infirst
+{
+    public static void main(String[] args)
+    {
+       
+        ArrayList<String> s = new ArrayList<>();
+        s.add("mik");
+        s.add("cap");
+        s.add("nik");
+
+      
+        String n = "ui";
+        s.add(0, n);
+
+        
+        System.out.println("new arrayList after insert:");
+        for (String names : s)
+        {
+            System.out.println(names);
+        }
+    }
+}
+

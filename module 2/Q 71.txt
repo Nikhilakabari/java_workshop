@@ -1,0 +1,23 @@
+Write a Java program to print all the elements of an Array List using the position of 
+the elements. 
+
+ans:
+
+import java.util.ArrayList;
+
+public class Positionarray
+{
+    public static void main(String[] args)
+    {
+        ArrayList<String> a = new ArrayList<>();
+        a.add("dfe");
+        a.add("ghi");
+        a.add("jkl");
+   
+
+        for (int i = 0; i < a.size(); i++) 
+        {
+            System.out.println(" position " + i + ": " + a.get(i));
+        }
+    }
+}

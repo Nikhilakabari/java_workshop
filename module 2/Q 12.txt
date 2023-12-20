@@ -1,0 +1,14 @@
+Write a Java program to display the system time.
+
+ans:
+import java.time.LocalTime;
+
+public class Displaytime 
+{
+    public static void main(String[] args) {
+        
+        LocalTime ct = LocalTime.now();
+        
+        System.out.println(" current system time: " + ct);
+    }
+}

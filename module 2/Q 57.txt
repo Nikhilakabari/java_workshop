@@ -1,0 +1,25 @@
+Write a Java program to iterate through all elements in a hash list
+
+ans:
+
+import java.util.HashSet;
+
+public class Hasset 
+{
+    public static void main(String[] args) 
+    {
+       
+        HashSet<String> s = new HashSet<>();
+
+        
+        s.add("shdb");
+        s.add("nxbh");
+        s.add("jx");
+
+      
+        System.out.println(" after Iterate:");
+        for (String el : s) {
+            System.out.println(el);
+        }
+    }
+}

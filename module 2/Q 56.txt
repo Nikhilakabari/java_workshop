@@ -1,0 +1,30 @@
+• Write a Java program to append the specified element to the end of a hash set.
+
+ans:
+
+import java.util.HashSet;
+
+public class Hasset 
+{
+    public static void main(String[] args) 
+    {
+       
+        HashSet<String> s = new HashSet<>();
+
+        
+        s.add("shdb");
+        s.add("nxbh");
+        s.add("jx");
+
+      
+        String ne = "mo";
+        s.add(ne);
+
+       
+        System.out.println(" after appen :");
+        for (String el : s) {
+            System.out.println(el);
+        }
+    }
+}
+

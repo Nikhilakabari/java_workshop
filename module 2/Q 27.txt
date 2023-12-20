@@ -1,0 +1,39 @@
+Write a program to print the area and perimeter of a triangle having sides of 3, 4 and
+5 units by creating a class named 'Triangle' without any parameter in its constructor
+
+ans:
+class Triangle {
+    private int s1;
+    private int s2;
+    private int s3;
+
+  
+    public Triangle() 
+    {
+        s1 = 3;
+        s2 = 4;
+        s3 = 5;
+    }
+
+    
+    public int calarea()
+    {
+        return 3*5/2;
+    }
+
+   
+    public int calmeter()
+    {
+        return s1 + s2 + s3;
+    }
+
+
+    public static void main(String[] args) 
+    {
+        Triangle tri = new Triangle();
+        
+ 
+        System.out.println("Triangle Area: " + tri.calarea());
+        System.out.println("Triangle Perimeter: " + tri.calmeter());
+    }
+}

@@ -1,0 +1,37 @@
+Take two numbers from the user and perform the division operation and handle
+Arithmetic Exception. O/P- Enter two numbers: 10 0
+Exception in thread main java.lang.ArithmeticException:/ by zero 
+
+ans:
+
+import java.util.Scanner;
+
+public class Examtryc 
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter two numbers for division:");
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+
+        try {
+            int r = divide(num1,num2);
+            System.out.println("Result of division: " + r);
+        } 
+        catch (ArithmeticException e)
+        {
+            System.out.println("Exception in thread main " + e.toString());
+        } 
+    }
+
+    static int divide(int num1, int num2)
+    {
+        if (num2 == 0)
+        {
+            throw new ArithmeticException("/ by zero");
+        }
+        return num1/num2;
+    }
+}

@@ -1,0 +1,32 @@
+Write a Java program to retrieve an element (at a specified index) from a given array 
+list. 
+ 
+ans:
+
+import java.util.ArrayList;
+
+public class Update
+
+{
+    public static void main(String[] args)
+    {
+       
+        ArrayList<String> cl = new ArrayList<>();
+        cl.add("Red");
+        cl.add("Blue");
+        cl.add("Green");
+
+     
+        String nc = "Yellow";
+        int index= 1;
+        cl.set(index, nc);
+
+       
+        System.out.println("after update:");
+        for (String cs: cl) 
+     {
+            System.out.println(cs);
+        }
+    }
+}
+

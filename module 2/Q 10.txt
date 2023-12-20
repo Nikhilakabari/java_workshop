@@ -1,0 +1,21 @@
+Write a Java program to print the ASCII value of a given character.
+
+ans:
+import java.util.Scanner;
+
+public class Ascivalue 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter a character: ");
+        char ch = sc.next().charAt(0);
+        
+        int as = (int)ch;
+        
+        System.out.println("The askivalue of " + ch + " is: " + as);
+        
+       
+    }
+}

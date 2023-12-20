@@ -1,0 +1,28 @@
+Write a Java program of swap two elements in an array list.
+
+ans:
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Reservarray
+{
+    public static void main(String[] args) 
+    {
+       
+        ArrayList<String> list = new ArrayList<>();
+        list.add("f");
+        list.add("t");
+        list.add("h");
+        
+   
+        Collections.swap(list, 1, 2);
+       
+     
+      System.out.println("after swap:");
+      for(String el: list)
+      {
+    	  System.out.println(el);
+      }
+    }
+}

@@ -1,0 +1,50 @@
+W.A.J.P to find all interleaving of given strings. 
+The given strings are: WX YZ 
+The interleaving strings are: YWZX WYZX YWXZ WXYZ YZWX WYXZ
+
+ans:
+import java.util.ArrayList;
+import java.util.List;
+
+public class Interleving
+{
+
+    public static List<String> find(String s1, String s2)
+    {
+        List<String> result = new ArrayList<>();
+        generateInterleavings(s1, s2, "", result);
+        return result;
+    }
+
+    private static void generateInterleavings(String s1, String s2, String current, List<String> result) 
+    {
+        if (s1.isEmpty() && s2.isEmpty())
+        {
+            result.add(current);
+            return;
+        }
+
+        if (!s1.isEmpty()) 
+        {
+            generateInterleavings(s1.substring(1), s2, current + s1.charAt(0), result);
+        }
+
+        if (!s2.isEmpty()) 
+        {
+            generateInterleavings(s1, s2.substring(1), current + s2.charAt(0), result);
+        }
+    }
+
+    public static void main(String[] args) 
+    {
+        String s1 = "WX";
+        String s2 = "YZ";
+
+        List<String> interleavings = find(s1, s2);
+
+        System.out.println("The interleaving strings are:");
+        for (String interleaving : interleavings) {
+            System.out.println(interleaving);
+        }
+    }
+}

@@ -1,0 +1,17 @@
+W.A.J.P to concatenate a given string to the end of another string. 
+
+ans:
+public class Concatestring 
+{
+    public static void main(String[] args)
+    {
+        String first = "nikhil ";
+        String second = "akabari";
+        
+        String concat = first + second;
+        
+        
+ 
+        System.out.println("Concatenated string: " + concat);
+    }
+}

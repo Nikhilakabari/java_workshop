@@ -1,0 +1,22 @@
+• Write a Java program to associate the specified value with the specified key in a 
+Hash Map.
+
+ans:
+import java.util.HashMap;
+
+public class Hasmap 
+{
+    public static void main(String[] args) 
+    {
+       
+        HashMap<Integer, String> map = new HashMap<>();
+
+        int k =1;
+        String v = "java";
+        map.put(k, v);
+
+      
+       System.out.println("Key: " + k + ", Value: " + map.get(k));
+    }
+}
+

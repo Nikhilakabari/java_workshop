@@ -1,0 +1,27 @@
+Write a Java program to remove the third element from an array list. 
+
+ans:
+
+import java.util.ArrayList;
+
+
+public class Remove
+{
+    public static void main(String[] args)
+    {
+    
+        ArrayList<Integer> num = new ArrayList<>();
+        num.add(5);
+        num.add(2);
+        num.add(3);
+        num.add(4);
+
+        
+        num.remove(2);
+
+       
+        System.out.println(" after remove:"+num);
+        
+    }
+}
+

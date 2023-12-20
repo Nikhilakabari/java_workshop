@@ -1,0 +1,28 @@
+Write a Java program to reverse elements in an array list
+
+ans:
+	import java.util.ArrayList;
+import java.util.Collections;
+
+	public class Reservarray
+	{
+	    public static void main(String[] args)
+	    {
+	       
+	        ArrayList<String> cl = new ArrayList<>();
+
+	        
+	        cl.add("Red");
+	        cl.add("Blue");
+	        cl.add("Green");
+	        cl.add("Yellow");
+
+	        
+	        Collections.reverse(cl);
+	        
+	        for (String color : cl)
+	        {
+	            System.out.println(color);
+	        }
+	    }
+	}
