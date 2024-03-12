@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author nikhil
- *
- */
-module nikj {
-}
